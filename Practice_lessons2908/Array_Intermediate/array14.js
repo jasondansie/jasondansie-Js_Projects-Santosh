@@ -9,7 +9,10 @@ Otherwise, it should return undefined.
  * @param {number} searchYear
  */
 function getYear(years, searchYear) {
-
+    let foundYear = years.find(function(year){
+        return year == searchYear;
+    })
+    return foundYear;
 }
 
 // Sample usage - do not modify
