@@ -9,8 +9,14 @@ Complete the function multiplyNumbers such that it multiplies every number fro
  /**
   * @param {number[]} numbers
   */
- const multiplyNumbers = numbers => {
+ let results = 0;
 
+ const multiplyNumbers = numbers => {
+    numbers.reduce((total, current) => {
+        results = total * current;
+        return results;
+    });
+    return results;
  }
 
  // Sample usage - do not modify
