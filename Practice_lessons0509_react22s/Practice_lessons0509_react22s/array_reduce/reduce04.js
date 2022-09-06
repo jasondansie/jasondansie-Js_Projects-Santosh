@@ -15,7 +15,7 @@ Complete the function multiplyNumbers such that it multiplies every number fro
     numbers.reduce((total, current) => {
         results = total * current;
         return results;
-    });
+    }, 0);
     return results;
  }
 

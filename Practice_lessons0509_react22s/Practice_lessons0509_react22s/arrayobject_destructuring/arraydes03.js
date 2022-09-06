@@ -3,7 +3,10 @@
  * @param {string[]} apps1
  * @param {string[]} apps2
  */
-const getApps = (apps1, apps2) => {};
+const getApps = (apps1, apps2) => {
+    const apps = [...apps1, ...apps2];
+    return apps;
+};
 
 // Sample usage - do not modify
 console.log(getApps(['Calculator', 'Whatsapp'], ['Chrome', 'Firefox'])); // ["Calculator", "Whatsapp" "Chrome", "Firefox"]
