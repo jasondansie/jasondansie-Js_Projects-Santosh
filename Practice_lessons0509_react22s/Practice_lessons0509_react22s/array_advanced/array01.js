@@ -5,9 +5,12 @@ Complete the function shouldAdjustGrades such that it returns true when the grad
 Grades should be increased when at least one of them is failing (10 and above are passing).
 /**
  * @param {number[]} grades
+ * 
  */
 const shouldAdjustGrades = grades => {
-
+    let ret = grades.some(grade => grade < 10);
+    console.log("ret: ", ret);
+    return ret;
 }
 
 
