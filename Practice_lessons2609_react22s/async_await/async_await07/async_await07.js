@@ -11,7 +11,7 @@ const getTweetDetails = async () => {
     // TODO using async/await
     const response = await fetch("https://programmingjs-90a13-default-rtdb.europe-west1.firebasedatabase.app/tweet.json")
     const data = await response.json();    
-    
+    console.log("data: ", data);
     let fullName = data.author.details.firstName + " " + data.author.details.lastName;
 
     showAuthorName(fullName);
