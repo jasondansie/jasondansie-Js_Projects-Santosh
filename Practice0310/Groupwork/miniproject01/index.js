@@ -1,3 +1,13 @@
+
+const button = document.querySelector("#get-repos");
+const ul = document.querySelector('#repos-list');
+const baseURL = `https://api.github.com/users/`;
+
+let repos = [];
+
+
+let userName = document.querySelector("#github-username");
+
 /* Sample usage do not modify */
 class FetchWrapper {
     constructor(baseURL) {
@@ -5,6 +15,7 @@ class FetchWrapper {
     }
 
     get(endpoint) {
+        console.log(this.baseURL + endpoint);
         return fetch(this.baseURL + endpoint)
             .then(response => response.json());
     }
@@ -40,7 +51,6 @@ const stopLoader = (element, value) => {
     element.textContent = value;
 }
 
-
 /* In this mini-project, you will build a page that uses the GitHub API to list the repositories of a GitHub user.
 This project does not require you to log in and authenticate with the GitHub API.
 However, the API has a limit of 60 requests per minute.
@@ -52,3 +62,27 @@ kalwar or yourgithubusername), and then when the user submits the form,
 the app will show the list of GitHub repositories for that user using the GitHub API. */
 
 /* Write your code here... */
+
+callFetch = (e) => {
+    e.preventDefault();
+
+    fetch(`https://api.github.com/users/${userName.value}/repos`, {
+        method: 'GET',
+        headers: {
+        Authorization: 'token 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',
+        },
+       }).then((response) => response.json())
+       .then((data) => {
+            data.forEach(element => {
+                liMaker(element.name);
+            });        
+       })
+}
+
+const liMaker = (text) => {
+    const li = document.createElement('li');
+    li.textContent = text;
+    ul.appendChild(li);
+   };
+
+button.addEventListener("click", callFetch);
